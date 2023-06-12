@@ -45,6 +45,9 @@
 
         </div>
         <div>
+            <asp:GridView ID="cartGV" runat="server"></asp:GridView>
+        </div>
+        <div>
             <asp:Button ID="deleteBtn" runat="server" Text="Delete all" />
             <asp:Button ID="buyBtn" runat="server" Text="Buy cart" />
         </div>
