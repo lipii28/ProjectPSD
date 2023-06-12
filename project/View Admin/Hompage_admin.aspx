@@ -9,9 +9,14 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1>Homepage</h1>
+            <asp:Button ID="ManageRamenBtn" runat="server" Text="Manage Ramen" />
+            <asp:Button ID="OrderQueueBtn" runat="server" Text="Order Queue" />
+            <asp:Button ID="ProfileBtn" runat="server" Text="Profile" />
+            <asp:Button ID="HistoryBtn" runat="server" Text="History" />
+            <asp:Button ID="ReportBtn" runat="server" Text="Report" />
+            <asp:Button ID="LogoutBtn" runat="server" Text="Logout" />
 
-            
+            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
 
         </div>
     </form>
