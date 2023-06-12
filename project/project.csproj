@@ -91,6 +91,7 @@
     </Content>
     <Content Include="Testing.txt" />
     <Content Include="View Admin\Hompage_admin.aspx" />
+    <Content Include="View Customer\History_customer.aspx" />
     <Content Include="View Customer\Homepage_customer.aspx" />
     <Content Include="View Customer\OrderRamen_customer.aspx" />
     <Content Include="View Universal\Loginpage.aspx" />
@@ -102,7 +103,6 @@
     <Compile Include="Controler\Usercontroler.cs" />
     <Compile Include="Factory\Raamen.cs" />
     <Compile Include="Factory\UserFactory.cs" />
-    <Compile Include="Handler\Handler.cs" />
     <Compile Include="Model\detail.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -137,6 +137,7 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\orderRamenRepo.cs" />
     <Compile Include="Repository\RaamenRepo.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="View Admin\Hompage_admin.aspx.cs">
@@ -145,6 +146,13 @@
     </Compile>
     <Compile Include="View Admin\Hompage_admin.aspx.designer.cs">
       <DependentUpon>Hompage_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View Customer\History_customer.aspx.cs">
+      <DependentUpon>History_customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View Customer\History_customer.aspx.designer.cs">
+      <DependentUpon>History_customer.aspx</DependentUpon>
     </Compile>
     <Compile Include="View Customer\Homepage_customer.aspx.cs">
       <DependentUpon>Homepage_customer.aspx</DependentUpon>
@@ -201,7 +209,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Handler\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

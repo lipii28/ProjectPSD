@@ -13,9 +13,10 @@
                 <Columns>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="selectedBtn" runat="server" Text="Select" />
+                            <asp:Button ID="selectedBtn" runat="server" Text="Add" OnClick="selectedBtn_Click" CommandArgument='<%# Eval("ramenId")%>'/>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:BoundField DataField="ramenId" HeaderText="Ramen ID" />
                     <asp:BoundField DataField="ramenName" HeaderText="Ramen Name" />
                     <asp:BoundField DataField="meatName" HeaderText="Meat" />
                     <asp:BoundField DataField="ramenBorth" HeaderText="Borth" />
@@ -48,8 +49,8 @@
             <asp:GridView ID="cartGV" runat="server"></asp:GridView>
         </div>
         <div>
-            <asp:Button ID="deleteBtn" runat="server" Text="Delete all" />
-            <asp:Button ID="buyBtn" runat="server" Text="Buy cart" />
+            <asp:Button ID="deleteBtn" runat="server" Text="Delete all" OnClick="deleteBtn_Click" />
+            <asp:Button ID="buyBtn" runat="server" Text="Buy cart" OnClick="buyBtn_Click" />
         </div>
     </form>
 </body>
