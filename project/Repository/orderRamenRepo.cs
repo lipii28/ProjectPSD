@@ -12,7 +12,7 @@ namespace project.Repository
         static DatabaseEntities db = new DatabaseEntities();
         public static List<Object> getRamen()
         {
-            return db.ramen.Select(ramen => new
+            return db.ramen1.Select(ramen => new
             {
                 ramen.ramenId,
                 ramen.ramenName,
@@ -32,9 +32,8 @@ namespace project.Repository
 
         public static void getRamen(int Id, string ramenName, string meatName, string ramenBroth, string ramenPrice)
         {
-            raman ramen = db.ramen.Find(Id);
+            ramen ramen = db.ramen1.Find(Id);
             ramen.ramenName = ramenName;
-            meat = meatName;
             ramen.ramenBorth = ramenBroth;
             ramen.ramenPrice = ramenPrice;
         }

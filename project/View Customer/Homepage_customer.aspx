@@ -9,11 +9,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h1>Home Page</h1>
+            <h3>Welcome to Ramen Restorant</h3>
             <asp:Button ID="orderRamen" runat="server" Text="Order Ramen" OnClick="orderRamen_Click" />
             <asp:Button ID="history" runat="server" Text="History" OnClick="history_Click" />
             <asp:Button ID="profile" runat="server" Text="Profile" OnClick="profile_Click" />
             <asp:Button ID="logout" runat="server" Text="Log Out" OnClick="logout_Click" />
-
         </div>
     </form>
 </body>

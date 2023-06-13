@@ -20,6 +20,6 @@ namespace project.Model
         public int ramenId { get; set; }
     
         public virtual header header { get; set; }
-        public virtual ramen raman { get; set; }
+        public virtual ramen ramen { get; set; }
     }
 }

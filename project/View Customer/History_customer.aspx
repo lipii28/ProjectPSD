@@ -9,7 +9,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="historyGV" runat="server"></asp:GridView>
         </div>
     </form>
 </body>

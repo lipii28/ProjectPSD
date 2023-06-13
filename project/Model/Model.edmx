@@ -160,7 +160,7 @@
           <Property Name="headerId" Type="Int32" Nullable="false" />
           <Property Name="ramenId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="header" Relationship="Self.FK__detail__headerId__36B12243" FromRole="detail" ToRole="header" />
-          <NavigationProperty Name="raman" Relationship="Self.FK__detail__ramenId__37A5467C" FromRole="detail" ToRole="ramen" />
+          <NavigationProperty Name="ramen" Relationship="Self.FK__detail__ramenId__37A5467C" FromRole="detail" ToRole="ramen" />
         </EntityType>
         <EntityType Name="header">
           <Key>
