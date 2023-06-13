@@ -27,10 +27,10 @@ namespace project.View_Customer
 
         protected void orderRamenGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ramen ramen = orderRamenRepo.getRamen(int.Parse(orderRamenGV.SelectedRow.Cells[1].Text));
+            /*ramen ramen = orderRamenRepo.getRamen(int.Parse(orderRamenGV.SelectedRow.Cells[1].Text));
             ramenNameTxt.Text = ramen.ramenName;
             ramenBorthTxt.Text = ramen.ramenBorth;
-            ramenPriceTxt.Text = ramen.ramenPrice;
+            ramenPriceTxt.Text = ramen.ramenPrice;*/
         }
 
         protected void deleteBtn_Click(object sender, EventArgs e)

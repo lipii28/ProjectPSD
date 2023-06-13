@@ -9,10 +9,10 @@ namespace project.Repository
 {
     public class orderRamenRepo
     {
-        static mainDatabaseEntities1 db = new mainDatabaseEntities1();
+        static DatabaseEntities db = new DatabaseEntities();
         public static List<Object> getRamen()
         {
-            return db.ramen1.Select(ramen => new
+            return db.ramen.Select(ramen => new
             {
                 ramen.ramenId,
                 ramen.ramenName,
@@ -32,11 +32,11 @@ namespace project.Repository
 
         public static void getRamen(int Id, string ramenName, string meatName, string ramenBroth, string ramenPrice)
         {
-            ramen Ramen = db.ramen1.Find(Id);
-            Ramen.ramenName = ramenName;
-            Ramen.meatNam
-            Ramen.ramenBorth = ramenBroth;
-            Ramen.ramenPrice = ramenPrice;
+            raman ramen = db.ramen.Find(Id);
+            ramen.ramenName = ramenName;
+            meat = meatName;
+            ramen.ramenBorth = ramenBroth;
+            ramen.ramenPrice = ramenPrice;
         }
     }
 }

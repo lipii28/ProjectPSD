@@ -4,18 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="57807f7814244e0f9e2ca72f8320f31b" Name="Diagram1">
-        <EntityTypeShape EntityType="mainDatabaseModel.header" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="mainDatabaseModel.meat" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mainDatabaseModel.ramen" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="mainDatabaseModel.role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="mainDatabaseModel.user" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="mainDatabaseModel.detail" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="mainDatabaseModel.FK__detail__headerId__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="mainDatabaseModel.FK__header__headerDa__286302EC" ManuallyRouted="false" />
-        <AssociationConnector Association="mainDatabaseModel.FK__ramen__meatId__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="mainDatabaseModel.FK__detail__ramenId__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="mainDatabaseModel.FK__user__roleId__25869641" ManuallyRouted="false" />
+      <Diagram DiagramId="dc9a59d0051d4d4e87e18fac67252785" Name="Diagram1">
+        <EntityTypeShape EntityType="DatabaseModel.detail" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.header" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.meat" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.ramen" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.user" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DatabaseModel.FK__detail__headerId__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__detail__ramenId__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__header__headerDa__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__ramen__meatId__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DatabaseModel.FK__user__roleId__25869641" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

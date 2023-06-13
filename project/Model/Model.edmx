@@ -4,15 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="mainDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJECT\APP_DATA\MAINDATABASE.MDF.dbo.detail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+      <Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="detail">
           <Key>
-            <PropertyRef Name="Quantity" />
-            <PropertyRef Name="headerId" />
-            <PropertyRef Name="ramenId" />
+            <PropertyRef Name="detailId" />
           </Key>
+          <Property Name="detailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="headerId" Type="int" Nullable="false" />
           <Property Name="ramenId" Type="int" Nullable="false" />
@@ -61,7 +58,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
           <Property Name="userGender" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="userPassword" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__detail__headerId__32E0915F">
+        <Association Name="FK__detail__headerId__36B12243">
           <End Role="header" Type="Self.header" Multiplicity="1" />
           <End Role="detail" Type="Self.detail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -73,7 +70,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__detail__ramenId__33D4B598">
+        <Association Name="FK__detail__ramenId__37A5467C">
           <End Role="ramen" Type="Self.ramen" Multiplicity="1" />
           <End Role="detail" Type="Self.detail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -121,24 +118,18 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="mainDatabaseModelStoreContainer">
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="detail" EntityType="Self.detail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="header" EntityType="Self.header" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="meat" EntityType="Self.meat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ramen" EntityType="Self.ramen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="detail" EntityType="Self.detail" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [detail].[Quantity] AS [Quantity], 
-    [detail].[headerId] AS [headerId], 
-    [detail].[ramenId] AS [ramenId]
-    FROM [dbo].[detail] AS [detail]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__detail__headerId__32E0915F" Association="Self.FK__detail__headerId__32E0915F">
+          <AssociationSet Name="FK__detail__headerId__36B12243" Association="Self.FK__detail__headerId__36B12243">
             <End Role="header" EntitySet="header" />
             <End Role="detail" EntitySet="detail" />
           </AssociationSet>
-          <AssociationSet Name="FK__detail__ramenId__33D4B598" Association="Self.FK__detail__ramenId__33D4B598">
+          <AssociationSet Name="FK__detail__ramenId__37A5467C" Association="Self.FK__detail__ramenId__37A5467C">
             <End Role="ramen" EntitySet="ramen" />
             <End Role="detail" EntitySet="detail" />
           </AssociationSet>
@@ -159,7 +150,18 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="mainDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="DatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="detail">
+          <Key>
+            <PropertyRef Name="detailId" />
+          </Key>
+          <Property Name="detailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="headerId" Type="Int32" Nullable="false" />
+          <Property Name="ramenId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="header" Relationship="Self.FK__detail__headerId__36B12243" FromRole="detail" ToRole="header" />
+          <NavigationProperty Name="raman" Relationship="Self.FK__detail__ramenId__37A5467C" FromRole="detail" ToRole="ramen" />
+        </EntityType>
         <EntityType Name="header">
           <Key>
             <PropertyRef Name="headerId" />
@@ -168,7 +170,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
           <Property Name="userId" Type="Int32" Nullable="false" />
           <Property Name="staffId" Type="Int32" Nullable="false" />
           <Property Name="headerDate" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="details" Relationship="Self.FK__detail__headerId__32E0915F" FromRole="header" ToRole="detail" />
+          <NavigationProperty Name="details" Relationship="Self.FK__detail__headerId__36B12243" FromRole="header" ToRole="detail" />
           <NavigationProperty Name="user" Relationship="Self.FK__header__headerDa__286302EC" FromRole="header" ToRole="user" />
         </EntityType>
         <EntityType Name="meat">
@@ -188,8 +190,8 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
           <Property Name="ramenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ramenBorth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ramenPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="details" Relationship="Self.FK__detail__ramenId__37A5467C" FromRole="ramen" ToRole="detail" />
           <NavigationProperty Name="meat" Relationship="Self.FK__ramen__meatId__30F848ED" FromRole="ramen" ToRole="meat" />
-          <NavigationProperty Name="details" Relationship="Self.FK__detail__ramenId__33D4B598" FromRole="ramen" ToRole="detail" />
         </EntityType>
         <EntityType Name="role">
           <Key>
@@ -212,19 +214,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
           <NavigationProperty Name="headers" Relationship="Self.FK__header__headerDa__286302EC" FromRole="user" ToRole="header" />
           <NavigationProperty Name="role" Relationship="Self.FK__user__roleId__25869641" FromRole="user" ToRole="role" />
         </EntityType>
-        <EntityType Name="detail">
-          <Key>
-            <PropertyRef Name="Quantity" />
-            <PropertyRef Name="headerId" />
-            <PropertyRef Name="ramenId" />
-          </Key>
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="headerId" Type="Int32" Nullable="false" />
-          <Property Name="ramenId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="header" Relationship="Self.FK__detail__headerId__32E0915F" FromRole="detail" ToRole="header" />
-          <NavigationProperty Name="ramen" Relationship="Self.FK__detail__ramenId__33D4B598" FromRole="detail" ToRole="ramen" />
-        </EntityType>
-        <Association Name="FK__detail__headerId__32E0915F">
+        <Association Name="FK__detail__headerId__36B12243">
           <End Role="header" Type="Self.header" Multiplicity="1" />
           <End Role="detail" Type="Self.detail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -233,6 +223,18 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </Principal>
             <Dependent Role="detail">
               <PropertyRef Name="headerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__detail__ramenId__37A5467C">
+          <End Role="ramen" Type="DatabaseModel.ramen" Multiplicity="1" />
+          <End Role="detail" Type="Self.detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ramen">
+              <PropertyRef Name="ramenId" />
+            </Principal>
+            <Dependent Role="detail">
+              <PropertyRef Name="ramenId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -250,25 +252,13 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
         </Association>
         <Association Name="FK__ramen__meatId__30F848ED">
           <End Role="meat" Type="Self.meat" Multiplicity="1" />
-          <End Role="ramen" Type="mainDatabaseModel.ramen" Multiplicity="*" />
+          <End Role="ramen" Type="DatabaseModel.ramen" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="meat">
               <PropertyRef Name="meatId" />
             </Principal>
             <Dependent Role="ramen">
               <PropertyRef Name="meatId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__detail__ramenId__33D4B598">
-          <End Role="ramen" Type="mainDatabaseModel.ramen" Multiplicity="1" />
-          <End Role="detail" Type="Self.detail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ramen">
-              <PropertyRef Name="ramenId" />
-            </Principal>
-            <Dependent Role="detail">
-              <PropertyRef Name="ramenId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -284,15 +274,19 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="mainDatabaseEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="details" EntityType="Self.detail" />
           <EntitySet Name="headers" EntityType="Self.header" />
           <EntitySet Name="meats" EntityType="Self.meat" />
-          <EntitySet Name="ramen1" EntityType="mainDatabaseModel.ramen" />
+          <EntitySet Name="ramen1" EntityType="DatabaseModel.ramen" />
           <EntitySet Name="roles" EntityType="Self.role" />
           <EntitySet Name="users" EntityType="Self.user" />
-          <EntitySet Name="details" EntityType="Self.detail" />
-          <AssociationSet Name="FK__detail__headerId__32E0915F" Association="Self.FK__detail__headerId__32E0915F">
+          <AssociationSet Name="FK__detail__headerId__36B12243" Association="Self.FK__detail__headerId__36B12243">
             <End Role="header" EntitySet="headers" />
+            <End Role="detail" EntitySet="details" />
+          </AssociationSet>
+          <AssociationSet Name="FK__detail__ramenId__37A5467C" Association="Self.FK__detail__ramenId__37A5467C">
+            <End Role="ramen" EntitySet="ramen1" />
             <End Role="detail" EntitySet="details" />
           </AssociationSet>
           <AssociationSet Name="FK__header__headerDa__286302EC" Association="Self.FK__header__headerDa__286302EC">
@@ -302,10 +296,6 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
           <AssociationSet Name="FK__ramen__meatId__30F848ED" Association="Self.FK__ramen__meatId__30F848ED">
             <End Role="meat" EntitySet="meats" />
             <End Role="ramen" EntitySet="ramen1" />
-          </AssociationSet>
-          <AssociationSet Name="FK__detail__ramenId__33D4B598" Association="Self.FK__detail__ramenId__33D4B598">
-            <End Role="ramen" EntitySet="ramen1" />
-            <End Role="detail" EntitySet="details" />
           </AssociationSet>
           <AssociationSet Name="FK__user__roleId__25869641" Association="Self.FK__user__roleId__25869641">
             <End Role="role" EntitySet="roles" />
@@ -317,9 +307,19 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="mainDatabaseModelStoreContainer" CdmEntityContainer="mainDatabaseEntities1">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="details">
+            <EntityTypeMapping TypeName="DatabaseModel.detail">
+              <MappingFragment StoreEntitySet="detail">
+                <ScalarProperty Name="detailId" ColumnName="detailId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="headerId" ColumnName="headerId" />
+                <ScalarProperty Name="ramenId" ColumnName="ramenId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="headers">
-            <EntityTypeMapping TypeName="mainDatabaseModel.header">
+            <EntityTypeMapping TypeName="DatabaseModel.header">
               <MappingFragment StoreEntitySet="header">
                 <ScalarProperty Name="headerId" ColumnName="headerId" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
@@ -329,7 +329,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="meats">
-            <EntityTypeMapping TypeName="mainDatabaseModel.meat">
+            <EntityTypeMapping TypeName="DatabaseModel.meat">
               <MappingFragment StoreEntitySet="meat">
                 <ScalarProperty Name="meatId" ColumnName="meatId" />
                 <ScalarProperty Name="meatName" ColumnName="meatName" />
@@ -337,7 +337,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ramen1">
-            <EntityTypeMapping TypeName="mainDatabaseModel.ramen">
+            <EntityTypeMapping TypeName="DatabaseModel.ramen">
               <MappingFragment StoreEntitySet="ramen">
                 <ScalarProperty Name="ramenId" ColumnName="ramenId" />
                 <ScalarProperty Name="meatId" ColumnName="meatId" />
@@ -348,7 +348,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roles">
-            <EntityTypeMapping TypeName="mainDatabaseModel.role">
+            <EntityTypeMapping TypeName="DatabaseModel.role">
               <MappingFragment StoreEntitySet="role">
                 <ScalarProperty Name="roleId" ColumnName="roleId" />
                 <ScalarProperty Name="roleName" ColumnName="roleName" />
@@ -356,7 +356,7 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users">
-            <EntityTypeMapping TypeName="mainDatabaseModel.user">
+            <EntityTypeMapping TypeName="DatabaseModel.user">
               <MappingFragment StoreEntitySet="user">
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="roleId" ColumnName="roleId" />
@@ -364,15 +364,6 @@ warning 6002: The table/view 'E:\KULIAH TINGKAT 2\PSD\PROJECT LAB\PROJECT\PROJEC
                 <ScalarProperty Name="userEmail" ColumnName="userEmail" />
                 <ScalarProperty Name="userGender" ColumnName="userGender" />
                 <ScalarProperty Name="userPassword" ColumnName="userPassword" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="details">
-            <EntityTypeMapping TypeName="mainDatabaseModel.detail">
-              <MappingFragment StoreEntitySet="detail">
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="headerId" ColumnName="headerId" />
-                <ScalarProperty Name="ramenId" ColumnName="ramenId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

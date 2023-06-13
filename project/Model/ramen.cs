@@ -26,8 +26,8 @@ namespace project.Model
         public string ramenBorth { get; set; }
         public string ramenPrice { get; set; }
     
-        public virtual meat meat { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<detail> details { get; set; }
+        public virtual meat meat { get; set; }
     }
 }

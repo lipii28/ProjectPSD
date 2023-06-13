@@ -13,10 +13,10 @@ namespace project.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class mainDatabaseEntities1 : DbContext
+    public partial class DatabaseEntities : DbContext
     {
-        public mainDatabaseEntities1()
-            : base("name=mainDatabaseEntities1")
+        public DatabaseEntities()
+            : base("name=DatabaseEntities")
         {
         }
     
@@ -25,11 +25,11 @@ namespace project.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<detail> details { get; set; }
         public virtual DbSet<header> headers { get; set; }
         public virtual DbSet<meat> meats { get; set; }
         public virtual DbSet<ramen> ramen1 { get; set; }
         public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<user> users { get; set; }
-        public virtual DbSet<detail> details { get; set; }
     }
 }

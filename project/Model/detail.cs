@@ -14,11 +14,12 @@ namespace project.Model
     
     public partial class detail
     {
+        public int detailId { get; set; }
         public int Quantity { get; set; }
         public int headerId { get; set; }
         public int ramenId { get; set; }
     
         public virtual header header { get; set; }
-        public virtual ramen ramen { get; set; }
+        public virtual ramen raman { get; set; }
     }
 }
