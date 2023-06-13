@@ -93,7 +93,9 @@
     <Content Include="View Admin\Hompage_admin.aspx" />
     <Content Include="View Customer\History_customer.aspx" />
     <Content Include="View Customer\Homepage_customer.aspx" />
+    <Content Include="View Customer\Logout_customer.aspx" />
     <Content Include="View Customer\OrderRamen_customer.aspx" />
+    <Content Include="View Customer\Profile_customer.aspx" />
     <Content Include="View Universal\Loginpage.aspx" />
     <Content Include="View Staff\Homepage_staff.aspx" />
     <Content Include="View Universal\Registerpage.aspx" />
@@ -161,12 +163,26 @@
     <Compile Include="View Customer\Homepage_customer.aspx.designer.cs">
       <DependentUpon>Homepage_customer.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View Customer\Logout_customer.aspx.cs">
+      <DependentUpon>Logout_customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View Customer\Logout_customer.aspx.designer.cs">
+      <DependentUpon>Logout_customer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View Customer\OrderRamen_customer.aspx.cs">
       <DependentUpon>OrderRamen_customer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View Customer\OrderRamen_customer.aspx.designer.cs">
       <DependentUpon>OrderRamen_customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View Customer\Profile_customer.aspx.cs">
+      <DependentUpon>Profile_customer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View Customer\Profile_customer.aspx.designer.cs">
+      <DependentUpon>Profile_customer.aspx</DependentUpon>
     </Compile>
     <Compile Include="View Universal\Loginpage.aspx.cs">
       <DependentUpon>Loginpage.aspx</DependentUpon>

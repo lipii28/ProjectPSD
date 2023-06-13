@@ -13,5 +13,25 @@ namespace project.View
         {
 
         }
+
+        protected void orderRamen_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OrderRamen_customer.aspx");
+        }
+
+        protected void history_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("History_customer.aspx");
+        }
+
+        protected void profile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Profile_customer.aspx");
+        }
+
+        protected void logout_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Logout.aspx");
+        }
     }
 }
