@@ -8,11 +8,10 @@ namespace project.Factory
 {
     public class UserFactory
     {
-        public static user createuser(int Roleid, string username, string email, string gender, string password) 
+        public static user CreateUser(string username, string email, string gender, string password) 
         {
             user User = new user();
 
-            User.roleId = Roleid;
             User.userName = username;
             User.userEmail = email;
             User.userGender = gender;

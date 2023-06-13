@@ -1,4 +1,5 @@
-﻿using System;
+﻿using project.Handler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,7 @@ namespace project.Controler
         {
             if (nama.Length < 5 || nama.Length > 15)
             {
-                return "Nama Kureng";
+                return "Nama Kurang";
             }
             else if (email.EndsWith(".com"))
             {
@@ -19,7 +20,7 @@ namespace project.Controler
             }
             else if (gender == null)
             {
-                return "Punya Gender Tidak ?";
+                return "Pilih Gender";
             }
             else if (password == confirm) 
             {
@@ -31,7 +32,10 @@ namespace project.Controler
             }
             else
             {
-                return "Sukses Sekale";
+                UserHandler.RegisterUser(nama, email, gender, password);
+
+
+                return "Sukses";
             }
 
         }

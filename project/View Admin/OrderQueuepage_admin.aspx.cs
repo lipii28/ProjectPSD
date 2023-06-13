@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace project.View_Admin
 {
-    public partial class Hompage_staff : System.Web.UI.Page
+    public partial class OrderQueuepage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
