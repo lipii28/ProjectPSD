@@ -1,4 +1,5 @@
-﻿using project.Model;
+﻿using project.Factory;
+using project.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -9,33 +10,56 @@ namespace project.Repository
 {
     public class orderRamenRepo
     {
-        static DatabaseEntities db = new DatabaseEntities();
-        public static List<Object> getRamen()
+        public static DatabaseEntities db = new DatabaseEntities();
+        public static List<object> GetRamens()
         {
-            return db.ramen1.Select(ramen => new
+            var ramens = db.ramen1.ToList();
+            var ramenObjects = ramens.Select(ramen => new
             {
                 ramen.ramenId,
                 ramen.ramenName,
                 ramen.ramenBorth,
                 ramen.ramenPrice,
-                meatName = ramen.meat.meatName
-            }).ToList<Object>();
-        }
-        public class Data
-        {
-            public string ramenName { get; set; }
-            public string meatName { get; set; }
-            public string ramenBroth { get; set; }
-            public string ramenPrice { get; set; }
-            public string quantity { get; set; }
+                MeatName = ramen.meat.meatName
+            }).Cast<object>().ToList();
+            return ramenObjects;
         }
 
-        public static void getRamen(int Id, string ramenName, string meatName, string ramenBroth, string ramenPrice)
+        public static void Createramen(int meatid, string name, string borth, string price)
         {
-            ramen ramen = db.ramen1.Find(Id);
-            ramen.ramenName = ramenName;
-            ramen.ramenBorth = ramenBroth;
-            ramen.ramenPrice = ramenPrice;
+            ramen ramen = Raamen.ramen(meatid, name, borth, price);
+            db.ramen1.Add(ramen);
+            db.SaveChanges();
+            return;
         }
+
+        public static void Deleteramen(int meatid)
+        {
+            ramen ramen = (from data in db.ramen1 where data.ramenId.Equals(meatid) select data).FirstOrDefault();
+            db.ramen1.Remove(ramen);
+            db.SaveChanges();
+            return;
+        }
+
+        public static void Updateramen(int meatid, string name, string borth, string price)
+        {
+            ramen ramen = (from data in db.ramen1 where data.ramenId.Equals(meatid) select data).FirstOrDefault();
+
+            if (meatid == null)
+            {
+                return;
+            }
+
+            ramen.meatId = meatid;
+            ramen.ramenName = name;
+            ramen.ramenBorth = borth;
+            ramen.ramenPrice = price;
+
+            db.SaveChanges();
+            return;
+        }
+
+
+
     }
 }

@@ -9,6 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h1>Order Ramen</h1>
+            <h3>Menu Ramen</h3>
             <asp:GridView ID="orderRamenGV" runat="server" OnSelectedIndexChanged="orderRamenGV_SelectedIndexChanged" AutoGenerateColumns="false">
                 <Columns>
                     <asp:TemplateField>
@@ -24,28 +26,9 @@
                 </Columns>
             </asp:GridView>
             <br />
-
-            <asp:Label ID="ramenNameLbl" runat="server" Text="Ramen name "></asp:Label>
-            <asp:TextBox ID="ramenNameTxt" runat="server"></asp:TextBox>
-            <br />
-
-            <asp:Label ID="meatNameLbl" runat="server" Text="Meat "></asp:Label>
-            <asp:DropDownList ID="meatNameList" runat="server">
-                <asp:ListItem Text="Tontkatsu"></asp:ListItem>
-                <asp:ListItem Text="Babi"></asp:ListItem>
-            </asp:DropDownList>
-            <br />
-
-            <asp:Label ID="ramenBorthLbl" runat="server" Text="Broth "></asp:Label>
-            <asp:TextBox ID="ramenBorthTxt" runat="server"></asp:TextBox>
-            <br />
-
-            <asp:Label ID="ramenPriceLbl" runat="server" Text="Price "></asp:Label>
-            <asp:TextBox ID="ramenPriceTxt" runat="server"></asp:TextBox>
-            <br />
-
         </div>
         <div>
+            <h3>Your Order</h3>
             <asp:GridView ID="cartGV" runat="server"></asp:GridView>
         </div>
         <div>
